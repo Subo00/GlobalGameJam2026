@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour, MaskListener
 
     public float ground_drag;
 
-    public float jump_force;
+    private float jump_force;
+    public float jump_normal;
+    public float jump_enhanced;
     public float jump_cooldown;
     public float air_multiplier;
     bool ready_to_jump;
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour, MaskListener
         rigid_body = GetComponentInChildren<Rigidbody>();
         rigid_body.freezeRotation = true;
         ready_to_jump = true;
+        jump_force = jump_normal;
         MaskChanger.Instance.AddListener(this);
     }
 
@@ -115,12 +118,19 @@ public class PlayerMovement : MonoBehaviour, MaskListener
 
     public void OnMaskChange(Mask mask)
     {
+        ResetPlayer();
         if(mask == Mask.GREEN)
         {
             transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
-        }else
+        }else if(mask == Mask.ORANGE)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            jump_force = jump_enhanced;
         }
+    }
+
+    private void ResetPlayer()
+    {
+        jump_force = jump_normal;
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }

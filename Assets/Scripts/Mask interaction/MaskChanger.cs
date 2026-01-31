@@ -60,6 +60,10 @@ public class MaskChanger : MonoBehaviour
         {
             ChangeMask(Mask.GREEN);
         }
+        else if(Input.GetKeyDown(KeyCode.Alpha5) && unlockedMasks[(int)Mask.ORANGE])
+        {
+            ChangeMask(Mask.ORANGE);
+        }
     }
 
 }
