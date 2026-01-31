@@ -42,7 +42,7 @@ public class UpdateManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         if (UpdateManager.Instance != null)
         {

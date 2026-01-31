@@ -3,7 +3,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private GameObject plate;
-    [SerializeField] private Trigger triggerDown;
+    [SerializeField] private Trigger[] triggerDown;
     [SerializeField] private Trigger triggerUp;
     public Vector3 startingPos;
     public Vector3 endingPos;
@@ -11,7 +11,13 @@ public class PressurePlate : MonoBehaviour
     protected virtual void OnDown()
     {
         plate.transform.position = endingPos;
-        if (triggerDown != null) triggerDown.DoTheThing();
+        if (triggerDown != null)
+        {
+            foreach (var trigger in triggerDown)
+            {
+                trigger.DoTheThing();
+            }
+        }
     }
 
     protected virtual void OnUp()

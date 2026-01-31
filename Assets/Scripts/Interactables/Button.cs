@@ -7,7 +7,8 @@ public class Button : Interactable
     [SerializeField] private Trigger trigger;
     private float timer = 0f;
     private float delay = 1f;
-
+    public Vector3 startingPos;
+    public Vector3 endingPos;
     protected override void OnUpdate()
     {
         CommonLogic();
@@ -19,6 +20,12 @@ public class Button : Interactable
             if(trigger != null) trigger.DoTheThing();
         }
 
+    }
+    private void Start()
+    {
+        startingPos = transform.position;
+        endingPos = startingPos;
+        endingPos.y -= 0.05f;
     }
 
 }
