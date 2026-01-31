@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Button : Interactable
 {
-    float timer = 0f;
-    public float delay = 1f;
+    [SerializeField] private Trigger trigger;
+    private float timer = 0f;
+    private float delay = 1f;
 
     protected override void OnUpdate()
     {
@@ -15,10 +16,9 @@ public class Button : Interactable
         if (Input.GetKey(KeyCode.E) && timer >= delay)
         {
             timer = 0f;
-            Debug.Log("I DID A THING!"); //add a thing to do (LOL)
+            if(trigger != null) trigger.DoTheThing();
         }
 
     }
-
 
 }

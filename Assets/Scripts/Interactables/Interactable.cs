@@ -2,7 +2,6 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour, IMyUpdate
 {
-    protected Transform dropPoint = null;
 
     private PlayerHUD playerHUD = null;
 
@@ -13,7 +12,7 @@ public abstract class Interactable : MonoBehaviour, IMyUpdate
     }
     protected void CommonLogic()
     {
-        playerHUD.ShowInteractionOnObject(dropPoint.position);
+        playerHUD.ShowInteractionOnObject(transform.position);
     }
 
     protected virtual void Start()
@@ -21,12 +20,7 @@ public abstract class Interactable : MonoBehaviour, IMyUpdate
         //Make sure that the gameObject dropPoint is a child of the GO
         //that this script is attached to
         Transform[] temp = gameObject.GetComponentsInChildren<Transform>();
-        dropPoint = temp[1];
         playerHUD = PlayerHUD.Instance;
-        if (dropPoint == null)
-        {
-            Debug.LogError("dropPoint game object can not be found!");
-        }
     }
 
     public void OnEntry()
