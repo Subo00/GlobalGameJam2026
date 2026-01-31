@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, MaskListener
 {
     [Header("Movement")]
     public float move_speed;
@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         rigid_body = GetComponentInChildren<Rigidbody>();
         rigid_body.freezeRotation = true;
         ready_to_jump = true;
+        MaskChanger.Instance.AddListener(this);
     }
 
     // Update is called once per frame
@@ -110,5 +111,16 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         ready_to_jump = true;
+    }
+
+    public void OnMaskChange(Mask mask)
+    {
+        if(mask == Mask.GREEN)
+        {
+            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        }else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
