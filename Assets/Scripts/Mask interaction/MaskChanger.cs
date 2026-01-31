@@ -31,6 +31,12 @@ public class MaskChanger : MonoBehaviour
         ChangeMask(Mask.NONE);
     }
 
+    public void BLUE()
+    {
+        ChangeMask(Mask.BLUE);
+    }
+
+
     public void ChangeMask(Mask mask)
     {
         currentMask = mask;
