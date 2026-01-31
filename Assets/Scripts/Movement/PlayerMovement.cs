@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        rigid_body = GetComponent<Rigidbody>();
+        rigid_body = GetComponentInChildren<Rigidbody>();
         rigid_body.freezeRotation = true;
         ready_to_jump = true;
     }
