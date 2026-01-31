@@ -7,7 +7,7 @@ public interface MaskListener
     void OnMaskChange(Mask mask);
 }
 
-public enum Mask { NONE, BLUE, RED, GREEN };
+public enum Mask { NONE, BLUE, RED, GREEN, COUNT };
 
 public class MaskChanger : MonoBehaviour
 {
@@ -15,13 +15,19 @@ public class MaskChanger : MonoBehaviour
 
     private List<MaskListener> maskListeners = new List<MaskListener>();
     private Mask currentMask;
-    
+    private bool[] unlockedMasks = new bool[(int)Mask.COUNT - 1];
+
     public void AddListener(MaskListener listener)
     {
         maskListeners.Add(listener);
     }
 
-    private void ChangeMask(Mask mask)
+    public void UnlockMask(Mask mask)
+    {
+        unlockedMasks[(int)mask] = true;
+    }
+
+    public void ChangeMask(Mask mask)
     {
         currentMask = mask;
         foreach (MaskListener listener in maskListeners)
@@ -38,15 +44,15 @@ public class MaskChanger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && unlockedMasks[(int)Mask.NONE])
         {
             ChangeMask(Mask.NONE);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedMasks[(int)Mask.BLUE])
         {
             ChangeMask(Mask.BLUE);
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha3))
+        else if(Input.GetKeyDown(KeyCode.Alpha3) && unlockedMasks[(int)Mask.RED])
         {
             ChangeMask(Mask.RED);
         }

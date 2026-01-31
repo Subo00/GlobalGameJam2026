@@ -8,6 +8,7 @@ public class UIInventoryBlock : MonoBehaviour
     private Image image;
     private Color equippedColor;
     private Color unequippedColor;
+    private Color disabledColor;
     void Awake()
     {
         //gameObject.SetActive(false);
@@ -17,8 +18,10 @@ public class UIInventoryBlock : MonoBehaviour
         equippedColor = image.color;
         unequippedColor = image.color;
         unequippedColor.a = 0.5f;
+        disabledColor = Color.black;
+        disabledColor.a = 0.5f;
 
-        Equipped(false);
+        image.color = disabledColor;
     }
 
     
