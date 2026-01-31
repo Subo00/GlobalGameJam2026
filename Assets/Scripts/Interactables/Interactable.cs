@@ -3,11 +3,9 @@ using UnityEngine;
 public abstract class Interactable : MonoBehaviour, IMyUpdate
 {
     protected Transform dropPoint = null;
-    protected PlayerMovement interactingPlayer = null;
 
     private PlayerHUD playerHUD = null;
 
-    public abstract void OnInteract(PlayerMovement player);
     protected abstract void OnUpdate();
     void IMyUpdate.MyUpdate()
     {
