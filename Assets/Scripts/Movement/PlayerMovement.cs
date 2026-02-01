@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour, MaskListener
     float horizontal_input;
     float vertical_input;
 
+    private Vector3 startingScale;
+
     Vector3 movement_direction;
 
     Rigidbody rigid_body;
@@ -41,6 +43,7 @@ public class PlayerMovement : MonoBehaviour, MaskListener
         ready_to_jump = true;
         jump_force = jump_normal;
         MaskChanger.Instance.AddListener(this);
+        startingScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -131,6 +134,6 @@ public class PlayerMovement : MonoBehaviour, MaskListener
     private void ResetPlayer()
     {
         jump_force = jump_normal;
-        transform.localScale = new Vector3(1f, 1f, 1f);
+        transform.localScale = startingScale;
     }
 }
