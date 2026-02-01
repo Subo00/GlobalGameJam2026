@@ -16,6 +16,9 @@ public class MaskChanger : MonoBehaviour
     private List<MaskListener> maskListeners = new List<MaskListener>();
     private Mask currentMask;
     private bool[] unlockedMasks = new bool[(int)Mask.COUNT];
+    private bool canChange = true;
+
+    public void SetCanChange(bool canChange) { this.canChange  = canChange; }
 
     public void AddListener(MaskListener listener)
     {
@@ -44,6 +47,7 @@ public class MaskChanger : MonoBehaviour
 
     private void Update()
     {
+        if(!canChange) return;
         if (Input.GetKeyDown(KeyCode.Alpha1) && unlockedMasks[(int)Mask.NONE])
         {
             ChangeMask(Mask.NONE);
