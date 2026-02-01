@@ -5,7 +5,7 @@ using UnityEngine;
 public class RedMaskListener : MonoBehaviour, MaskListener
 {
     [SerializeField] private Material redMaterial;
-    [SerializeField] private Material defaultMaterial;
+    private Material defaultMaterial;
 
     private MeshRenderer meshRenderer;
     public void OnMaskChange(Mask mask)
