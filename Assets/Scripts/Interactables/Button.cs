@@ -21,11 +21,12 @@ public class Button : Interactable
         }
 
     }
-    private void Start()
+    protected override void Start()
     {
         startingPos = transform.position;
         endingPos = startingPos;
         endingPos.y -= 0.05f;
+        base.Start();
     }
 
 }

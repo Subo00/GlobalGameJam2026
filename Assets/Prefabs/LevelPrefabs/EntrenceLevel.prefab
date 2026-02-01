@@ -2753,7 +2753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3f95de1179493449ed49ef681dab2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
 --- !u!1 &4622332153351172192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,7 +3472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3f95de1179493449ed49ef681dab2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
+  state: 0
 --- !u!1 &5225510877218499688
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,7 +5269,7 @@ GameObject:
   - component: {fileID: 892537166049012409}
   - component: {fileID: 1805407943103799121}
   - component: {fileID: 7550742813283149207}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
