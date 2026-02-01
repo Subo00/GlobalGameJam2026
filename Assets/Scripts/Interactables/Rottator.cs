@@ -9,7 +9,7 @@ public class Rottator : Trigger
 {
     public State state;
 
-    private void Start()
+    protected virtual void Start()
     {
         transform.Rotate(0f, (int)state * 90f, 0f);
     }

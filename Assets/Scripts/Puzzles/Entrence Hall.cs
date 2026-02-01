@@ -3,6 +3,7 @@ using UnityEngine;
 public class EntrenceHall : MonoBehaviour, IMyUpdate
 {
     [SerializeField] private Rottator[] rotators;
+    [SerializeField] private Trigger door;
 
     private void Start()
     {
@@ -16,7 +17,7 @@ public class EntrenceHall : MonoBehaviour, IMyUpdate
             if (rotator.state != State.SOUTH) return;
         }
 
-        Debug.Log("WUUUU");
+        door.DoTheThing();
         UpdateManager.Instance.RemoveUpdatable(this);
     }
 }
