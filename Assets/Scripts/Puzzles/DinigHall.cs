@@ -6,7 +6,7 @@ public class DinigHall : Trigger
 {
     [SerializeField] private PressurePlateDelux[] platesON;
     [SerializeField] private PressurePlateDelux[] platesOFF;
-
+    [SerializeField] private GameObject wall;
     public void CheckPlates()
     {
         foreach (var plate in platesON)
@@ -20,6 +20,7 @@ public class DinigHall : Trigger
         }
 
         Debug.Log("WE MADE IT");
+        Destroy(wall);
     }
 
     public override void DoTheThing()
