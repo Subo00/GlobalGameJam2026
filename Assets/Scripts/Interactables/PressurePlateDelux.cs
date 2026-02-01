@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PressurePlateDelux : PressurePlate
 {
-    [SerializeField] private Material oneColor;
-    [SerializeField] private Material twoColor;
+    [SerializeField] protected Material oneColor;
+    [SerializeField] protected Material twoColor;
     public bool isOne = true;
 
+    protected override void Start()
+    {
+        base.Start();
+    }
     protected override void OnDown()
     {
         isOne = !isOne;

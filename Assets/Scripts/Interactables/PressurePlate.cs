@@ -26,7 +26,7 @@ public class PressurePlate : MonoBehaviour
         if(triggerUp != null) triggerUp.DoTheThing();
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         startingPos = plate.transform.position;
         endingPos = startingPos;
