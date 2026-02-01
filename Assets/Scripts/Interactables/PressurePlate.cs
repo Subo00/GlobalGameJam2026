@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PressurePlate : MonoBehaviour
 {
-    [SerializeField] private GameObject plate;
+    [SerializeField] protected GameObject plate;
     [SerializeField] private Trigger[] triggerDown;
     [SerializeField] private Trigger triggerUp;
     public Vector3 startingPos;
